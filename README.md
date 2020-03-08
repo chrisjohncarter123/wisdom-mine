@@ -1,10 +1,6 @@
-hi
-
 # Wisdom::Mine
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wisdom/mine`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a simple cli application to scrape biblehub.com for chapters of books of the bible, and bible commentaries.
 
 ## Installation
 
@@ -24,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+simply run the application with the command `ruby loop.rb`. You will be then given the introduction logo, and options for your next commands.
 
 ## Development
 
