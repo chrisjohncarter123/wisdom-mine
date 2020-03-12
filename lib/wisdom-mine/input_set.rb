@@ -1,4 +1,4 @@
-require "./user_input.rb"
+require_relative "./user_input.rb"
 
 class Input_Set
 

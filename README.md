@@ -1,5 +1,8 @@
 # Wisdom::Mine
 
+Wisdom-Mine is the latest and greatest application ever made.
+
+
 This is a simple cli application to scrape biblehub.com for chapters of books of the bible, and bible commentaries.
 
 ## Installation

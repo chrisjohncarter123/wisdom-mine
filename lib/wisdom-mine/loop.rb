@@ -1,13 +1,13 @@
 
 
 
-require './bible_scrape.rb'
-require './commentary_scrape.rb'
-require './cli_command.rb'
-require './user_input.rb'
-require './menu.rb'
-require "./input_set.rb"
-require 'colorize'
+require_relative './bible_scrape.rb'
+require_relative './commentary_scrape.rb'
+require_relative './cli_command.rb'
+require_relative './user_input.rb'
+require_relative './menu.rb'
+require_relative "./input_set.rb"
+require'colorize'
 
 class Loop
 
@@ -174,4 +174,3 @@ class Loop
   end
 
 
-  Loop.run

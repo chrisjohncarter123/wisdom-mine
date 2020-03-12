@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
-require './settings.rb'
-require './chapter.rb'
+require_relative './settings.rb'
+require_relative './chapter.rb'
 
 
 class Bible_Scrape
