@@ -32,5 +32,10 @@ class Commentary_Scrape < Bible_Scrape
     return result
   end
 
+  def make_commentary
+    c = Chapter.new_from_page(get_commentary)
+    return c
+  end
+
 
 end

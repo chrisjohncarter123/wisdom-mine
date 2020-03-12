@@ -18,20 +18,24 @@ class Loop
 
     input = ""
 
-    puts"░██╗░░░░░░░██╗██╗░██████╗██████╗░░█████╗░███╗░░░███╗".red.on_blue
-    puts"░██║░░██╗░░██║██║██╔════╝██╔══██╗██╔══██╗████╗░████║".red.on_blue
-    puts"░╚██╗████╗██╔╝██║╚█████╗░██║░░██║██║░░██║██╔████╔██║".red.on_blue
-    puts"░░████╔═████║░██║░╚═══██╗██║░░██║██║░░██║██║╚██╔╝██║".red.on_blue
-    puts"░░╚██╔╝░╚██╔╝░██║██████╔╝██████╔╝╚█████╔╝██║░╚═╝░██║".red.on_blue
-    puts"░░░╚═╝░░░╚═╝░░╚═╝╚═════╝░╚═════╝░░╚════╝░╚═╝░░░░░╚═╝".red.on_blue
-    puts"                                                    ".on_blue
 
-    puts"           ███╗░░░███╗██╗███╗░░██╗███████╗          ".red.on_blue
-    puts"           ████╗░████║██║████╗░██║██╔════╝          ".red.on_blue
-    puts"           ██╔████╔██║██║██╔██╗██║█████╗░░          ".red.on_blue
-    puts"           ██║╚██╔╝██║██║██║╚████║██╔══╝░░          ".red.on_blue
-    puts"           ██║░╚═╝░██║██║██║░╚███║███████╗          ".red.on_blue
-    puts"           ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚══════╝          ".red.on_blue
+    puts"                                                        ".on_blue
+    puts"  ░██╗░░░░░░░██╗██╗░██████╗██████╗░░█████╗░███╗░░░███╗  ".red.on_blue
+    puts"  ░██║░░██╗░░██║██║██╔════╝██╔══██╗██╔══██╗████╗░████║  ".red.on_blue
+    puts"  ░╚██╗████╗██╔╝██║╚█████╗░██║░░██║██║░░██║██╔████╔██║  ".red.on_blue
+    puts"  ░░████╔═████║░██║░╚═══██╗██║░░██║██║░░██║██║╚██╔╝██║  ".red.on_blue
+    puts"  ░░╚██╔╝░╚██╔╝░██║██████╔╝██████╔╝╚█████╔╝██║░╚═╝░██║  ".red.on_blue
+    puts"  ░░░╚═╝░░░╚═╝░░╚═╝╚═════╝░╚═════╝░░╚════╝░╚═╝░░░░░╚═╝  ".red.on_blue
+    puts"                                                        ".on_blue
+
+    puts"             ███╗░░░███╗██╗███╗░░██╗███████╗            ".red.on_blue
+    puts"             ████╗░████║██║████╗░██║██╔════╝            ".red.on_blue
+    puts"             ██╔████╔██║██║██╔██╗██║█████╗░░            ".red.on_blue
+    puts"             ██║╚██╔╝██║██║██║╚████║██╔══╝░░            ".red.on_blue
+    puts"             ██║░╚═╝░██║██║██║░╚███║███████╗            ".red.on_blue
+    puts"             ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚══════╝            ".red.on_blue
+    puts"                                                        ".on_blue
+
 
     puts "Welcome to " + "Wisdom Mine!".bold
 
@@ -39,7 +43,7 @@ class Loop
 
       commands = []
       commands << CLI_Command.new("1", "View a chapter of a book of the Bible", self.method(:chapter))
-      commands << CLI_Command.new("2", "View a chapter of a commentary", self.method(:commentary_chapter))
+      #commands << CLI_Command.new("2", "View a chapter of a commentary", self.method(:commentary_chapter))
       commands << CLI_Command.new("s", "Settings", self.method(:settings))
       commands << CLI_Command.new("q", "Quit", self.method(:quit))
 
@@ -71,58 +75,52 @@ class Loop
     i = Input_Set.new(lines)
     result = i.display
 
-    c = Bible_Scrape.new(result[0],result[1])
-    c.display
+    scrape = Bible_Scrape.new(result[0],result[1])
+    new_chapter = scrape.make_chapter
+
+    new_chapter.display
 
   end
 
-  def self.verse
-    lines = []
-    lines << "Enter name of bible book:"
-    lines << "Enter chapter number:"
-    lines << "Enter verse number:"
-    i = Input_Set.new(lines)
-    result = i.display
 
-    c = Bible_Scrape.new(result[0],result[1])
-    c.display
+  #def self.commentary_chapter
+  # commands = []
+  # commands << CLI_Command.new("m", "Matthew Henry's Commentary")
+  # commands << CLI_Command.new("s", "Sermon Bible")
+  # commands << CLI_Command.new("b", "Back to main menu")
 
-  end
+  # menu = Menu.new("Choose bible Commentary", commands)
 
-  def self.commentary_chapter
-    commands = []
-    commands << CLI_Command.new("m", "Matthew Henry's Commentary")
-    commands << CLI_Command.new("s", "Sermon Bible")
-    commands << CLI_Command.new("b", "Back to main menu")
+  # menu.display
 
-    menu = Menu.new("Choose bible Commentary", commands)
-    menu.display
+  # input = User_Input.get_input
 
-    input = User_Input.get_input
+  # if(input == "b")
+  #   back_to_main_menu
+  #   return
+  # end
 
-    if(input == "b")
-      back_to_main_menu
-      return
-    end
+  # lines = []
+  # lines << "Enter name of bible book:"
+  # lines << "Enter chapter number:"
+  # i = Input_Set.new(lines)
+  # result = i.display
 
-    lines = []
-    lines << "Enter name of bible book:"
-    lines << "Enter chapter number:"
-    i = Input_Set.new(lines)
-    result = i.display
+  # scrape = Commentary_Scrape.new(result[0],result[1])
+  # new_commentary = scrape.make_commentary
 
-    c = Commentary_Scrape.new(result[0],result[1])
+  # case input
+  # when "m"
+  #   new_commentary.set_commentary_to_matthew_henry
+  # when "s"
+  #   new_commentary.set_commentary_to_sermon_bible
+  # end
 
-    case input
-    when "m"
-      c.set_commentary_to_matthew_henry
-    when "s"
-      c.set_commentary_to_sermon_bible
-    end
+  # new_commentary.display
 
-    c.display
+  #end
 
-  end
+
 
   def self.settings
     commands = []

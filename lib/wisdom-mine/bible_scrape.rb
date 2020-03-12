@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require './settings.rb'
+require './chapter.rb'
 
 
 class Bible_Scrape
@@ -13,16 +14,7 @@ class Bible_Scrape
 
   end
 
-  def display
 
-    if(chapter == nil)
-      puts "#{book} - #{Settings.bible_version}"
-      puts get_book
-    else
-      puts "#{book} #{chapter} - #{Settings.bible_version}"
-      puts get_chapter
-    end
-  end
 
 
   def get_chapter
@@ -35,10 +27,17 @@ class Bible_Scrape
     page.css(".chap").each do |source|
       t = source.text
 
-      result << t
+      result += t
     end
 
     return result
+  end
+
+
+
+  def make_chapter
+    c = Chapter.new_from_page(get_chapter)
+    return c
   end
 
 
