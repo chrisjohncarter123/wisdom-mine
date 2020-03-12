@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require '../lib/wisdom-mine/loop.rb'
+require './lib/wisdom-mine/loop.rb'
 
 Loop.run

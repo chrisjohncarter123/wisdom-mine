@@ -15,7 +15,7 @@ gem 'wisdom-mine'
 
 And then execute:
 
-    $ bundle
+    $ ./bin/wisdom-mine
 
 Or install it yourself as:
 
@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-simply run the application with the command `ruby loop.rb`. You will be then given the introduction logo, and options for your next commands.
+simply run the application with the command './bin/wisdom-mine' . You will be then given the introduction logo, and options for your next commands. The application will scrape biblehub.com for bible chapters
 
 ## Development
 
